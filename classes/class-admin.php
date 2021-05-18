@@ -32,7 +32,7 @@
       */
       public function mensagens_menu() {
         // add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position );
-        add_menu_page('Guits Contato','Guits Mensagens', 'edit_others_posts', $this->plugin_name, array( $this, 'contato_section') );
+        add_menu_page('Guits Contato','Guits Mensagens', 'edit_others_posts', $this->plugin_name, array( $this, 'contato_section'), 'dashicons-email-alt' );
       }
 
       /**
