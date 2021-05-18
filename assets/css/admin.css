@@ -1,6 +1,10 @@
 .guits-form-wrapper {
   padding:20px;
 }
+.guits-form-wrapper label {
+  margin:5px 0;
+  display: inline-block;
+}
 #guits_select_page_form legend {
   margin: 5px 0 10px;
   font-size:16px;
@@ -11,6 +15,7 @@
   border-style: groove;
   border-width: 2px;
 }
-#guits_recaptcha_secret_key {
+#guits_recaptcha_secret_key, #guits_recaptcha_site_key {
   width: 100%;
+  max-width: 385px;
 }
