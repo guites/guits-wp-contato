@@ -15,7 +15,7 @@
   border-style: groove;
   border-width: 2px;
 }
-#guits_recaptcha_secret_key, #guits_recaptcha_site_key {
+#guits_recaptcha_secret_key, #guits_recaptcha_site_key,#guits_akismet_api_key{
   width: 100%;
   max-width: 385px;
 }

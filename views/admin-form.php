@@ -42,8 +42,8 @@ $guits_select_page_nonce = wp_create_nonce( 'guits_select_page_form_nonce' );
 <form action="<?php echo esc_url( admin_url ( 'admin-post.php' ) ); ?>" method="post" id="guits_select_page_form">
 <fieldset>
 <legend><strong>Defina as configurações do formulário</strong></legend>
+<small>Crie sua chave AKISMET clicando <a href='https://akismet.com/signup/?plan=developer' title='Site do AKISMET'>aqui</a>.</small><br/><br/>
 <label for='guits_akismet_api_key'>Coloque sua chave da API Akismet</label><br/>
-<small>Crie sua chave clicando <a href='https://akismet.com/signup/?plan=developer' title='Site do AKISMET'>aqui</a>.</small><br/>
 <input type='text' name='guits_akismet_api_key' placeholder='m1nh4ch4v34k1sm3t' id='guits_akismet_api_key' value='<?php echo $guits_akismet->getApiKey(); ?>' required /><br/><br/>
 <?php echo $dropdown_html; ?>
 <?php echo $recaptcha_checkbox; ?>

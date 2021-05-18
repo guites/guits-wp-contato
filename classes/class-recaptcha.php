@@ -24,7 +24,7 @@ if (!class_exists('Guits_recaptcha')) {
     */
 
     public function setSiteKey($site_key) {
-      return update_option($this->site_key_option, $secret_key);
+      return update_option($this->site_key_option, $site_key);
     }
 
     /**

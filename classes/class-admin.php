@@ -95,10 +95,12 @@
             }
           }
           $guits_recaptcha_secret_key = sanitize_text_field($_POST['guits']['recaptcha_secret_key']);
+          $guits_recaptcha_site_key = sanitize_text_field($_POST['guits']['recaptcha_site_key']);
 
           ### caso optar por utilizar o recaptcha, colocar a chave é obrigatório
           if ( $guits_recaptcha_option ) {
-            if (empty($guits_recaptcha_secret_key)) $this->guits_die("A chave do captcha é obrigatória para utilizar a ferramenta!", 400);
+            if (empty($guits_recaptcha_secret_key)) $this->guits_die("A chave secreta do reCAPTCHA é obrigatória para utilizar a ferramenta!", 400);
+            if (empty($guits_recaptcha_site_key)) $this->guits_die("A chave pública do reCAPTCHA é obrigatória para utilizar a ferramenta!", 400);
           }
 
           ##### validação da chave do akismet
@@ -107,7 +109,7 @@
 
           # atualização dos dados
           $notice_type = "error";
-          $notice_page = $notice_captcha = $notice_akismet = false;
+          $notice_page = $notice_captcha_secret = $notice_captcha_site = $notice_akismet = false;
 
 
           ## verifica se a pessoa optou pela página já definida
@@ -121,15 +123,26 @@
             $notice_page = true;
           }
 
-          ### verifica se a pessoa alterou a opção do recaptcha
+          ### verifica se a pessoa alterou a chave secreta do recaptcha
           if ($guits_recaptcha->getSecretKey() != $guits_recaptcha_secret_key) {
 
             ### verifica se atualizou a opção do uso do recaptcha
-            if ($guits_recaptcha->setSecretKey($guits_recaptcha_secret_key)) $notice_captcha = true;
+            if ($guits_recaptcha->setSecretKey($guits_recaptcha_secret_key)) $notice_captcha_secret = true;
 
           } else {
             ### se a chave continua a mesma, tudo ok
-            $notice_captcha = true;
+            $notice_captcha_secret = true;
+          }
+
+          ### verifica se a pessoa alterou a chave pública do recaptcha
+          if ($guits_recaptcha->getSiteKey() != $guits_recaptcha_site_key) {
+
+            ### verifica se atualizou a opção do uso do recaptcha
+            if ($guits_recaptcha->setSiteKey($guits_recaptcha_site_key)) $notice_captcha_site = true;
+
+          } else {
+            ### se a chave continua a mesma, tudo ok
+            $notice_captcha_site = true;
           }
 
           #### verifica se a chave do akismet utilizada é válida
@@ -147,7 +160,7 @@
             $notice_akismet = true;
           }
 
-          if ( $notice_captcha && $notice_page && $notice_akismet ) $notice_type = "success";
+          if ( $notice_captcha_secret && $notice_captcha_site && $notice_page && $notice_akismet ) $notice_type = "success";
 
           # avisa o usuário
           $this->custom_redirect($notice_type, $_POST, true);
