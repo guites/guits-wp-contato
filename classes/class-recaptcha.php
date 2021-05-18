@@ -8,12 +8,31 @@ if (!class_exists('Guits_recaptcha')) {
   class Guits_recaptcha {
 
     private $secret_key;
+    private $site_key;
     private $secret_key_option;
+    private $site_key_option;
     private $status_option;
 
     function __construct() {
       $this->status_option = 'guits_contato_recaptcha_status';
       $this->secret_key_option = 'guits_secret_key_recaptcha';
+      $this->site_key_option = 'guits_site_key_recaptcha';
+    }
+
+    /**
+    * método para adicionar a site key via painel adm
+    */
+
+    public function setSiteKey($site_key) {
+      return update_option($this->site_key_option, $secret_key);
+    }
+
+    /**
+    * método para acessar valor da secret key, utilizado no __construct
+    */
+
+    public function getSiteKey() {
+      return get_option($this->site_key_option, false);
     }
 
     /**

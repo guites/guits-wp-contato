@@ -395,7 +395,7 @@
                   <noscript><p style='color:darkblue';>Você precisa habilitar o javascript para resolver o captcha.</p></noscript>
                   <form action='". esc_url ( admin_url ( 'admin-post.php' ) ) ."' method='post'>
                   <input type='hidden' name='guits_frontend_captcha_nonce' value='".$guits_frontend_captcha_nonce."'>
-                  <div class='g-recaptcha' data-sitekey='6LfEotcaAAAAAHdwzgznjDE_N4a721Neq4wAG30q'></div>
+                  <div class='g-recaptcha' data-sitekey='".$guits_recaptcha->getSiteKey()."'></div>
                   <input type='hidden' name='c-name' value='" .$guits_frontend_contact_name. "' />
                   <input type='hidden' name='c-email' value='" .$guits_frontend_contact_email. "' />
                   <input type='hidden' name='c-select' value='" .$guits_frontend_contact_assunto. "' />

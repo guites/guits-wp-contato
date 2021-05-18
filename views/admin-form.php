@@ -25,11 +25,13 @@ if ($use_recaptcha) {
 }
 $recaptcha_checkbox .=  "
 />
-<label for='guits_recaptcha_option'>Utilizar reCAPTCHA</label><br/>
+<label for='guits_recaptcha_option'>Utilizar reCAPTCHA</label><br/><br/>
+<small>Crie suas chaves clicando <a href='https://www.google.com/recaptcha/admin' title='Site do reCAPTCHA'>aqui</a>.</small><br/><br/>
 <label for='guits_recaptcha_secret_key'>Digite sua chave secreta do reCAPTCHA.</label><br/>
-<small>Crie sua chave clicando <a href='https://www.google.com/recaptcha/admin' title='Site do reCAPTCHA'>aqui</a>.</small><br/>
 <input type='text' id='guits_recaptcha_secret_key' value='".$guits_recaptcha->getSecretKey()."' name='guits[recaptcha_secret_key]' placeholder='ch4v3d0m3ur3c4pth4' /><br/>
-<small>obrigatório caso marcar a opção acima</small><br/>
+<label for='guits_recaptcha_site_key'>Digite sua chave pública do reCAPTCHA.</label><br/>
+<input type='text' id='guits_recaptcha_site_key' value='".$guits_recaptcha->getSiteKey()."' name='guits[recaptcha_site_key]' placeholder='ch4v3publ1c4d0r3c4pth4' /><br/>
+<small>chaves obrigatórias caso optar pelo uso do reCAPTCHA</small><br/>
 ";
 
 $guits_select_page_nonce = wp_create_nonce( 'guits_select_page_form_nonce' );
