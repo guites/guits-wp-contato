@@ -1,0 +1,16 @@
+.guits-form-wrapper {
+  padding:20px;
+}
+#guits_select_page_form legend {
+  margin: 5px 0 10px;
+  font-size:16px;
+}
+#guits_select_page_form fieldset {
+  border-color: #000;
+  padding:25px;
+  border-style: groove;
+  border-width: 2px;
+}
+#guits_recaptcha_secret_key {
+  width: 100%;
+}
