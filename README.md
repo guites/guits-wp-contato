@@ -10,4 +10,4 @@ Você pode optar por salvar as mensagens marcadas como spam diretamente na pasta
 #### Configuração via painel ADM
 O plugin cria um único menu no painel, de onde você gerencia todas as configurações necessária.
 
-![Painel Admin](/assets/admin-view.png)
+![Painel Admin](/assets/images/admin-view.png)
