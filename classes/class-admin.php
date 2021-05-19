@@ -17,7 +17,7 @@
         add_action( 'wp_ajax_get_job_applications', array( $this, 'get_form_messages') );
 
         //add post handling on admin-posts.php
-          // definição da página que terá o form
+          // método para receber a requisição com as configurações do plugin
         add_action('admin_post_guits_form_response', array($this,'the_form_response'));
           // handling do envio de contato
         add_action('admin_post_nopriv_guits_form_contato_frontend', array($this,'the_form_frontend_response'));
