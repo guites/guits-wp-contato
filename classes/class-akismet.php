@@ -10,7 +10,7 @@ if (!class_exists('Guits_akismet')) {
     function __construct() {
       $this->option_api_key = 'guits_akismet_api_key';
       $this->api_key = $this->getApiKey();
-      $this->site_url = 'http://wordpress.omandriao.com.br/';
+      $this->site_url = get_site_url();
       $this->akismet_ua = "WordPress/5.7.2 | Akismet/4.1.9";
     }
 
