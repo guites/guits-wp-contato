@@ -44,7 +44,7 @@ if (!class_exists('Guits_recaptcha')) {
     }
 
     /**
-    * método para acessar valor da secret key, utilizado no __construct
+    * método para acessar valor da secret key
     */
 
     public function getSecretKey() {
