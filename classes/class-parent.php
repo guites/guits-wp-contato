@@ -39,17 +39,17 @@ if (!class_exists('Guits_contato')) {
     }
 
     public function createTheSinglePost() {
-      // Initialize the page ID to -1. This indicates no action has been taken.
+      // inicia a variável post_id como -1, identificando que nenhum post foi criado.
       $post_id = -1;
 
-      // Setup the author, slug, and title for the post
+      // Define o slug e o título do post a ser criado
       $slug = 'guits-contato-post';
       $title = 'Guits Contato Post';
 
-      // If the page doesn't already exist, then create it
+      // Se um post com esse título não existir, cria-o
       if( null == get_page_by_title( $title, OBJECT, $this->post_type ) ) {
 
-        // Set the post ID so that we know the post was created successfully
+        // Passa o id do post criado para a variável, assim sabemos que ele foi criado corretamente
         $post_id = wp_insert_post(
           array(
             'comment_status'  =>  'open',
@@ -62,7 +62,7 @@ if (!class_exists('Guits_contato')) {
 
       } else {
 
-        // Arbitrarily use -2 to indicate that the page with the title already exists
+        // arbitrariamente utilizamos -2 para identificar que o post já existia
         $post_id = -2;
 
       } // end if
