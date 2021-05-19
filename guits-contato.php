@@ -31,7 +31,7 @@ require_once( dirname(__FILE__) . '/classes/class-mensagens.php' );
 register_activation_hook( __FILE__, 'guits_activation_handler');
 
 function guits_activation_handler() {
-  $guits_contato = new Guits_contato_admin();
+  $guits_contato = new Guits_contato();
   $guits_setup_post_id = $guits_contato->createTheSinglePost();
 
 } // end guits_activation_handler;
