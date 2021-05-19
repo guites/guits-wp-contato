@@ -28,7 +28,7 @@
       }
 
       /**
-      * add menu para ver mensagens
+      * add menu
       */
       public function mensagens_menu() {
         // add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position );
