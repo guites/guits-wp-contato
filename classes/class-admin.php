@@ -255,7 +255,10 @@
                 $this->custom_redirect("success","success", false);
 
               } else {
+                $commendata['error'] = " captcha ok wp_insert_comment";
+                error_log(print_r($commentdata, true));
                 $this->guits_die("Ocorreu um erro ao enviar sua mensagem! Tente novamente mais tarde.", 500);
+
               }
 
 
@@ -296,6 +299,9 @@
         $guits_frontend_contact_referrer = $_SERVER['HTTP_REFERER'];
         $guits_frontend_contact_remote_addr = $_SERVER['REMOTE_ADDR'];
         $guits_frontend_contact_user_agent = $_SERVER['HTTP_USER_AGENT'];
+        if (strlen($guits_frontend_contact_user_agent) > 498) {
+          $guits_frontend_contact_user_agent = substr($guits_frontend_contact_user_agent, 0, 496) . " ..";
+        }
 
         if(strlen($guits_frontend_contact_name) > 20) {
           $this->guits_die("O campo NOME/APELIDO só pode ter até 20 caracteres.", 400);
@@ -430,6 +436,8 @@
                 wp_spam_comment( $new_comment_id );
                 $this->custom_redirect("success","success", false);
               } else {
+                $commendata['error'] = "optou por nao usar o recaptcha wp_insert_comment";
+                error_log(print_r($commentdata, true));
                 $this->guits_die("Ocorreu um erro ao enviar sua mensagem! Tente novamente mais tarde.", 500);
               }
             }
@@ -446,6 +454,8 @@
               $this->custom_redirect("success","success", false);
 
             } else {
+              $commentdata['error'] = "passou pelo akismet considerar ham wp_insert_comment";
+              error_log(print_r($commentdata, true));
               $this->guits_die("Ocorreu um erro ao enviar sua mensagem! Tente novamente mais tarde.", 500);
             }
 
